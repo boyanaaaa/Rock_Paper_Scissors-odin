@@ -20,6 +20,10 @@ keeps track of the scores and declares a winner at the end.
 
 let humanScore = 0;
 let computerScore = 0;
+let currentRound = 0;
+
+const results = document.querySelector(".results");
+
 
 function getComputerChoice() {
     const choices = ["rock", "paper", "scissors"];
@@ -28,12 +32,15 @@ function getComputerChoice() {
 }
 
 
-
+/*
 function getHumanChoice(){
     let humanAnswer = prompt("Write your choice", '');
     humanAnswer = humanAnswer.toLowerCase();
     return humanAnswer;
 }
+    */
+
+
 
 
 
@@ -66,28 +73,42 @@ function playRound(human, computer) {
     } else if ( human === "scissors" && computer === "scissors"){
         console.log("Equal score"); 
     }
+    results.innerHTML = `Current result: Human - ${humanScore} Computer = ${computerScore}`;
 
 }
 
 
+function handleButtonClick(humanChoice) {
+if (currentRound < 5) {
+    currentRound++;
+    const computerChoice = getComputerChoice();
+    console.log(`Round ${currentRound}`);
+    playRound(humanChoice, computerChoice);
+    if ( currentRound === 5){
+        if (humanScore > computerScore){
+            results.innerHTML = `<br>Congratulations! You win! `;
+        } else if ( humanScore < computerScore){
+            results.innerHTML = `<br>Sorry! You lose! `;
 
-function playGame(){
-    for ( let i = 0;  i < 5; i ++){
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-        console.log(`Round ${i + 1}`);
-        playRound(humanSelection, computerSelection);
-        console.log(`Current result: Human - ${humanScore} Computer = ${computerScore}`);
-    }
+        } else {
+            results.innerHTML = `<br>Equal resut!`;
 
-    if ( humanScore > computerScore)
-    {
-        console.log("Congratulations! You win!")
-    } else if ( humanScore < computerScore){
-        console.log("Sorry! You lose!")
-    } else if ( humanScore === computerScore){
-        console.log("Equeal result!");
+        }
     }
 }
+}
 
-playGame();
+
+
+
+const btnRock = document.querySelector(".btnRock");
+btnRock.addEventListener('click', () => { 
+    handleButtonClick("rock") });
+
+const btnPaper = document.querySelector(".btnPaper");
+btnPaper.addEventListener('click', () => { 
+    handleButtonClick("paper") });
+
+const btnScissors = document.querySelector(".btnScissors");
+btnScissors.addEventListener('click', () => { 
+    handleButtonClick("scissors") ;});
