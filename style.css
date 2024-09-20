@@ -1,0 +1,51 @@
+body{
+    display: flex;
+    justify-content: center;
+}
+
+.mainContainer{
+    border: 3px solid rgb(35, 24, 161);
+    height: 35em;
+    width: 30em;
+    margin-top: 10em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.buttons{
+    display: flex;
+    gap: 3em;
+    margin-top: 50px;
+
+}
+
+
+.buttons > * {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid rgb(36, 42, 44);
+    background-color: rgb(110, 202, 255);
+    font-family: "Inria Sans", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 20px;
+}
+
+.gameImage{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-top: 60px;
+}
+
+
+.results{
+    margin-top: 10px;
+    font-family: "Inria Sans", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 15px;
+}
