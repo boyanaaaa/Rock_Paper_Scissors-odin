@@ -32,20 +32,6 @@ function getComputerChoice() {
 }
 
 
-/*
-function getHumanChoice(){
-    let humanAnswer = prompt("Write your choice", '');
-    humanAnswer = humanAnswer.toLowerCase();
-    return humanAnswer;
-}
-    */
-
-
-
-
-
-
-
 
 function playRound(human, computer) {
     if( human === "rock" && computer === "rock"){
@@ -59,7 +45,7 @@ function playRound(human, computer) {
     } else if ( human === "paper" && computer === "rock"){
         console.log("You win! Paper beats Rock");
         humanScore += 1;
-    } else if ( human === "paper" && computer === "paper"){
+    } else if ( human === "paper" && computer === "paper"){ 
         console.log("Equal score");
     } else if ( human === "paper" && computer === "scissors"){
         console.log("You lose! Scissors beats Paper");
